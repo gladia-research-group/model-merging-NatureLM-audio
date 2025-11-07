@@ -277,7 +277,6 @@ If you use this work, please cite our paper:
   author    = {Davide Marincione and Donato Crisostomi and Roberto Dessi and Emanuele Rodolà and Emanuele Rossi},
   booktitle = {NeurIPS 2025 Workshop on AI for Animal Communication (AIForAnimalComms)},
   year      = {2025},
-  url       = {https://openreview.net/forum?id=8YmupGWwvl}
 }
 ```
 
