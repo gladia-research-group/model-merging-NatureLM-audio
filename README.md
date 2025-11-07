@@ -282,8 +282,6 @@ If you use this work, please cite our paper:
 ```
 
 
-```
-
 ## Acknowledgments
 
 This work builds upon the [NatureLM-audio codebase](https://github.com/earthspecies/NatureLM-audio). We thank the original authors for making their code publicly available.
