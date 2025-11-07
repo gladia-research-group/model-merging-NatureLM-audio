@@ -6,6 +6,7 @@ from pathlib import Path
 # Get the project root directory
 project_root = Path(__file__).parent.parent
 output_dir = Path(__file__).parent
+output_dir.mkdir(exist_ok=True, parents=True)
 
 folders_list =  [
     str(project_root / "results" / "closed_set_classification_2"),

@@ -6,6 +6,11 @@ import numpy as np
 from pathlib import Path
 from utils import *
 
+# Get the project root directory
+project_root = Path(__file__).parent.parent
+output_dir = project_root / "plot"
+output_dir.mkdir(exist_ok=True, parents=True)
+
 dataset = "zf-indiv"
 types = ["Original", "Reversed", "No Classes"] # 0 = common, 1 = scientific, 2 = combined
 outputs_loaded = dict()
@@ -102,6 +107,6 @@ ax.legend(handles=[baseline_line], frameon=False, loc='upper right', fontsize=24
 sns.despine(fig, ax, trim=True, offset=10)
 
 # Save to PDF alongside others
-fig.savefig('zf_indiv_plot.pdf', bbox_inches='tight')
+fig.savefig(output_dir / 'zf_indiv_plot.pdf', bbox_inches='tight')
 
 plt.show()

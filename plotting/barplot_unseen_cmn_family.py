@@ -2,6 +2,12 @@ import matplotlib.pyplot as plt
 import numpy as np
 import matplotlib.patheffects as pe
 import seaborn as sns
+from pathlib import Path
+
+# Get the project root directory
+project_root = Path(__file__).parent.parent
+output_dir = project_root / "plot"
+output_dir.mkdir(exist_ok=True, parents=True)
 
 # Publication-quality styling
 plt.rcParams.update(
@@ -63,6 +69,6 @@ ax.legend(frameon=False, fontsize=22)
 sns.despine(fig, ax, trim=True, offset=10)
 
 # Save to PDF alongside others
-fig.savefig('unseen_cmn_family_all_classes_bar_plot.pdf', bbox_inches='tight')
+fig.savefig(output_dir / 'unseen_cmn_family_all_classes_bar_plot.pdf', bbox_inches='tight')
 
 plt.show()

@@ -3,6 +3,11 @@ import pandas as pd
 import json
 from pathlib import Path
 
+# Get the project root directory
+project_root = Path(__file__).parent.parent
+output_dir = project_root / "plot"
+output_dir.mkdir(exist_ok=True, parents=True)
+
 folders_list =  [
     "results/closed_set_classification_2",
     "results/closed_set_classification_all",
@@ -91,5 +96,5 @@ ax.tick_params(axis='both', which='both', length=4, width=0.8, labelsize=24)
 ax.legend(frameon=False, fontsize=24)
 sns.despine(fig, ax,trim=True)
 plt.title("Class in Set Percentage vs Scaling Factor for Different Setups", fontsize=28)
-plt.savefig(f'correct_classes_prediction_percentage.pdf', bbox_inches='tight')
+plt.savefig(output_dir / 'correct_classes_prediction_percentage.pdf', bbox_inches='tight')
 plt.clf()
