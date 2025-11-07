@@ -1,8 +1,8 @@
-from beans_zero.evaluate import compute_metrics
 import json
 import pandas as pd
 import seaborn as sns
 from pathlib import Path
+from utils import compute_metrics
 
 # Get the project root directory
 project_root = Path(__file__).parent.parent

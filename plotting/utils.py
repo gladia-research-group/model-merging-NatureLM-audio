@@ -1,5 +1,8 @@
 
 import numpy as np
+from beans_zero.evaluate import *
+from beans_zero.post_processor import *
+from Levenshtein import distance as levenshtein_distance
 
 def macro_f1_baselines(class_counts):
     """
@@ -45,3 +48,45 @@ def accuracy_baseline(class_counts):
     accuracy_majority = counts[majority] / N
     accuracy_random = 1 / len(counts)
     return accuracy_majority, accuracy_random
+
+def get_nearest_label(self, text: str) -> str:
+    """
+    Find the nearest label to the text using levenshtein distance.
+    If the distance is greater than max_distance_for_match, return 'None'.
+
+    If multi_label is True, return a comma-separated string of labels.
+
+    Arguments
+    ---------
+    text : str
+        The text to match
+
+    Returns
+    -------
+    str
+        The matched label
+
+    Examples
+    --------
+    >>> processor = EvalPostProcessor(set(["dog", "cat", "bird"]),"classification")
+    >>> processor.get_nearest_label("dog")
+    'dog'
+    """
+    # Check for exact match first
+    text = self.remove_eos_token(text)
+    if text in self.target_label_set:
+        return text
+
+    nearest_label = min(
+        list(self.target_label_set),
+        key=lambda label: levenshtein_distance(text, label),
+    )
+    if (
+        levenshtein_distance(nearest_label, text) > self.max_levenstein_distance
+        #and self.multi_label
+    ):
+        return "None"  # DETECTION only: no strong match, choose None
+
+    return nearest_label
+
+EvalPostProcessor.get_nearest_label = get_nearest_label

@@ -1,4 +1,3 @@
-from beans_zero.evaluate import compute_metrics
 import json
 import pandas as pd
 import seaborn as sns
