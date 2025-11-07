@@ -9,7 +9,7 @@ output_dir = Path(__file__).parent
 
 folders_list =  [
     str(project_root / "results" / "closed_set_classification_2"),
-    str(project_root / "results" / "closed_set_classification_alls"),
+    str(project_root / "results" / "closed_set_classification_all"),
 ]
 
 outputs_loaded = dict()
