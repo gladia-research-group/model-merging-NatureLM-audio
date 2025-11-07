@@ -47,7 +47,7 @@ for dataset in outputs_loaded.keys():
         results = {"prediction": outputs, "label": labels, "dataset_name": ["unseen-family-cmn"] * len(outputs), "id": list(range(len(outputs)))}
         results_df = pd.DataFrame(results)
             
-        metrics = compute_metrics_fix(results_df, verbose=False)
+        metrics = compute_metrics(results_df, verbose=False)
         metrics_per_setup[dataset].append(metrics["unseen-family-cmn"])
         print(f"Dataset: {dataset}, Scaling: {i * 10}%")
         print(metrics["unseen-family-cmn"]["Accuracy"], metrics["unseen-family-cmn"]["F1 Score"])
