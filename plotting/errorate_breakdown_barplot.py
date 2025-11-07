@@ -5,7 +5,7 @@ from utils import EvalPostProcessor
 
 # Get the project root directory
 project_root = Path(__file__).parent.parent
-output_dir = Path(__file__).parent
+output_dir = project_root / "plot"
 output_dir.mkdir(exist_ok=True, parents=True)
 
 folders_list =  [
