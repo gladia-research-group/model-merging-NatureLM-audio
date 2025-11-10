@@ -1,7 +1,13 @@
-from beans_zero.evaluate import compute_metrics
 import json
 import pandas as pd
 import seaborn as sns
+from pathlib import Path
+from utils import compute_metrics
+
+# Get the project root directory
+project_root = Path(__file__).parent.parent
+output_dir = project_root / "plot"
+output_dir.mkdir(exist_ok=True, parents=True)
 
 # Load mappings
 watkins_mapping = dict()
@@ -137,7 +143,7 @@ for dataset_name, ax in zip(datasets, axs):
     if dataset_name == "watkins":
         ax.legend(frameon=False, fontsize=24)
     sns.despine(fig, ax,trim=True)
-plt.savefig('accuracy_scaling_factors_watkins_cbi.pdf', bbox_inches='tight')
+plt.savefig(output_dir / 'accuracy_scaling_factors_watkins_cbi.pdf', bbox_inches='tight')
 
 # Generate combined accuracy vs downstream task plot
 marker_kwargs = dict(marker='o', markersize=8, markerfacecolor='white', markeredgewidth=3)
@@ -177,5 +183,5 @@ ax.set_xlabel('Training tasks accuracy', fontsize=28*2)
 ax.set_ylabel('Combined task accuracy', fontsize=28*2)
 ax.legend(frameon=False, fontsize=24*1.5, loc='upper left')
 sns.despine(fig, ax,trim=True)
-plt.savefig('combined_vs_original_tasks.pdf', bbox_inches='tight')
+plt.savefig(output_dir / 'combined_vs_original_tasks.pdf', bbox_inches='tight')
 

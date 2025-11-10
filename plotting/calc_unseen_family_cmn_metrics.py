@@ -1,10 +1,14 @@
-from beans_zero.evaluate import compute_metrics
 import json
 import pandas as pd
 import seaborn as sns
 import numpy as np
 from pathlib import Path
 from utils import *
+
+# Get the project root directory
+project_root = Path(__file__).parent.parent
+output_dir = project_root / "plot"
+output_dir.mkdir(exist_ok=True, parents=True)
 
 folders_list =  [
     "results/closed_set_classification_2",
@@ -117,5 +121,5 @@ for files, names, postfix in [
         ax.tick_params(axis='both', which='both', length=4, width=0.8, labelsize=24)
         ax.legend(ncol=2, frameon=False, fontsize=22)
         sns.despine(fig, ax,trim=True)
-        plt.savefig(f'{plot_type.replace(" ", "_").lower().replace("_score", "")}_unseen_cmn_family_{postfix}.pdf', bbox_inches='tight')
+        plt.savefig(output_dir / f'{plot_type.replace(" ", "_").lower().replace("_score", "")}_unseen_cmn_family_{postfix}.pdf', bbox_inches='tight')
         plt.clf()

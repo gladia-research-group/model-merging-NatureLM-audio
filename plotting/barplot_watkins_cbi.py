@@ -2,6 +2,12 @@ import matplotlib.pyplot as plt
 import numpy as np
 import matplotlib.patheffects as pe
 import seaborn as sns
+from pathlib import Path
+
+# Get the project root directory
+project_root = Path(__file__).parent.parent
+output_dir = project_root / "plot"
+output_dir.mkdir(exist_ok=True, parents=True)
 
 # Publication-quality styling
 plt.rcParams.update(
@@ -64,4 +70,4 @@ ax.legend(frameon=False, loc='upper right', fontsize=24)
 sns.despine(fig, ax,trim=True, offset=10)
 
 # Save to PDF alongside others
-fig.savefig('scientific_common_combined_bar.pdf', bbox_inches='tight')
+fig.savefig(output_dir / 'scientific_common_combined_bar.pdf', bbox_inches='tight')
