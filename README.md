@@ -1,10 +1,10 @@
 # Model Merging Improves Zero-Shot Generalization in Bioacoustic Foundation Models
 
-[![arXiv](https://img.shields.io/badge/arXiv-2405.15653-b31b1b.svg)](arxivlinkhere)
+[![arXiv](https://img.shields.io/badge/arXiv-2405.15653-b31b1b.svg)](https://arxiv.org/abs/2511.05171)
 
 
 This repository provides the official code for the paper  
-[*Model Merging Improves Zero-Shot Generalization in Bioacoustic Foundation Models*](arxivlinkhere).  
+[*Model Merging Improves Zero-Shot Generalization in Bioacoustic Foundation Models*](https://arxiv.org/abs/2511.05171).  
 It is based on a fork of the [NatureLM-audio original codebase](https://github.com/earthspecies/NatureLM-audio).
 
 <p align="center">
